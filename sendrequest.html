@@ -1,220 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PepsiCo Time Off - Request Leave</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./css/index.css" />
-  </head>
-  <body class="bg-gray-100 font-proxima min-h-screen">
-    <div class="min-h-screen flex flex-col">
-      <header class="bg-white py-4 px-6 shadow-sm flex items-center justify-between sticky top-0 z-10">
-        <h1 class="text-2xl font-semibold text-gray-800">Request leave</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PepsiCo Time Off - Request Leave</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+  <div class="min-h-screen flex flex-col">
+    <div class="bg-white border-b px-6 py-4">
+      <div class="container mx-auto px-4 flex items-center justify-between">
+        <h1 class="text-xl font-bold text-gray-900">Request Leave</h1>
         <div class="flex items-center space-x-4">
-          <a href="leave.html" class="p-2 text-gray-500 hover:text-blue-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              />
-            </svg>
-          </a>
-          <a href="request-leave.html" class="p-2 text-gray-500 hover:text-blue-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M8 7V3m8 4V3m-9 8h8m4 0h3m-7 4h3m4 0h3M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-            </svg>
-          </a>
-          <a href="#" class="p-2 text-gray-500 hover:text-blue-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-          </a>
-          <a href="#" class="p-2 text-gray-500 hover:text-blue-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-              />
-            </svg>
-          </a>
-          <div class="flex items-center space-x-2">
-            <img src="./assets/profile.png" alt="User Profile" class="h-10 w-10 rounded-full" />
-            <span class="text-sm font-semibold text-gray-800">12/25</span>
-          </div>
-        </div>
-      </header>
-
-      <main class="flex-1 p-6">
-        <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
-          <div class="flex items-center space-x-4 mb-8">
-            <img src="./assets/profile.png" alt="User Profile" class="h-12 w-12 rounded-full" />
-            <div class="text-xl font-semibold text-gray-800">Bas Meijerink</div>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <h2 class="text-xl font-semibold text-gray-800 mb-4">Leave type</h2>
-              <div class="flex flex-wrap gap-2">
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium">Leave</button>
-                <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-medium">Sick</button>
-                <div class="relative">
-                  <select class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-medium appearance-none pr-8">
-                    <option>Other</option>
-                  </select>
-                  <div class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h2 class="text-xl font-semibold text-gray-800 mb-4">Period</h2>
-              <div class="flex space-x-2">
-                <div class="relative w-1/2">
-                  <input type="text" value="May 15, 2023" class="w-full bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-medium pl-10" readonly />
-                  <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h8m4 0h3m-7 4h3m4 0h3M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="relative w-1/2">
-                  <input type="text" value="May 21, 2023" class="w-full bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-medium pl-10" readonly />
-                  <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h8m4 0h3m-7 4h3m4 0h3M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8">
-            <div class="flex items-center justify-between mb-4">
-              <button class="p-2 rounded-full hover:bg-gray-100">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-              <h2 class="text-xl font-semibold text-gray-800">May 2023</h2>
-              <button class="p-2 rounded-full hover:bg-gray-100">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-gray-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="grid grid-cols-7 gap-2 text-center text-sm">
-              <div class="text-gray-500">MO</div>
-              <div class="text-gray-500">TU</div>
-              <div class="text-gray-500">WE</div>
-              <div class="text-gray-500">TH</div>
-              <div class="text-gray-500">FR</div>
-              <div class="text-gray-500">SA</div>
-              <div class="text-gray-500">SU</div>
-              <div class="py-2 text-gray-400">29</div>
-              <div class="py-2 text-gray-400">30</div>
-              <div class="py-2 text-gray-400">1</div>
-              <div class="py-2 text-gray-400">2</div>
-              <div class="py-2 text-gray-400">3</div>
-              <div class="py-2">4</div>
-              <div class="py-2">5</div>
-              <div class="py-2">6</div>
-              <div class="py-2">7</div>
-              <div class="py-2">8</div>
-              <div class="py-2">9</div>
-              <div class="py-2">10</div>
-              <div class="py-2">11</div>
-              <div class="py-2">12</div>
-              <div class="py-2">13</div>
-              <div class="py-2">14</div>
-              <div class="py-2 bg-green-400 text-white rounded-md">15</div>
-              <div class="py-2 bg-green-400 text-white rounded-md">16</div>
-              <div class="py-2 bg-green-400 text-white rounded-md">17</div>
-              <div class="py-2 bg-green-400 text-white rounded-md">18</div>
-              <div class="py-2 bg-green-400 text-white rounded-md">19</div>
-              <div class="py-2 bg-green-400 text-white rounded-md">20</div>
-              <div class="py-2 bg-green-400 text-white rounded-md">21</div>
-              <div class="py-2">22</div>
-              <div class="py-2">23</div>
-              <div class="py-2">24</div>
-              <div class="py-2">25</div>
-              <div class="py-2">26</div>
-              <div class="py-2">27</div>
-              <div class="py-2">28</div>
-              <div class="py-2">29</div>
-              <div class="py-2">30</div>
-              <div class="py-2">31</div>
-              <div class="py-2 text-gray-400">1</div>
-              <div class="py-2 text-gray-400">2</div>
-            </div>
-            <button class="w-full mt-8 bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
-              SEND REQUEST
+          <a href="schedule.html">
+            <button class="p-2 text-blue-500 hover:bg-blue-50 rounded-lg">
+              <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M4.18753 11.3788C4.03002 11.759 4 11.9533 4 12V20.0018C4 20.5529 4.44652 21 5 21H8V15C8 13.8954 8.89543 13 10 13H14C15.1046 13 16 13.8954 16 15V21H19C19.5535 21 20 20.5529 20 20.0018V12C20 11.9533 19.97 11.759 19.8125 11.3788C19.6662 11.0256 19.4443 10.5926 19.1547 10.1025C18.5764 9.1238 17.765 7.97999 16.8568 6.89018C15.9465 5.79788 14.9639 4.78969 14.0502 4.06454C13.5935 3.70204 13.1736 3.42608 12.8055 3.2444C12.429 3.05862 12.1641 3 12 3C11.8359 3 11.571 3.05862 11.1945 3.2444C10.8264 3.42608 10.4065 3.70204 9.94978 4.06454C9.03609 4.78969 8.05348 5.79788 7.14322 6.89018C6.23505 7.97999 5.42361 9.1238 4.8453 10.1025C4.55568 10.5926 4.33385 11.0256 4.18753 11.3788ZM10.3094 1.45091C10.8353 1.19138 11.4141 1 12 1C12.5859 1 13.1647 1.19138 13.6906 1.45091C14.2248 1.71454 14.7659 2.07921 15.2935 2.49796C16.3486 3.33531 17.4285 4.45212 18.3932 5.60982C19.3601 6.77001 20.2361 8.0012 20.8766 9.08502C21.1963 9.62614 21.4667 10.1462 21.6602 10.6134C21.8425 11.0535 22 11.5467 22 12V20.0018C22 21.6599 20.6557 23 19 23H16C14.8954 23 14 22.1046 14 21V15H10V21C10 22.1046 9.10457 23 8 23H5C3.34434 23 2 21.6599 2 20.0018V12C2 11.5467 2.15748 11.0535 2.33982 10.6134C2.53334 10.1462 2.80369 9.62614 3.12345 9.08502C3.76389 8.0012 4.63995 6.77001 5.60678 5.60982C6.57152 4.45212 7.65141 3.33531 8.70647 2.49796C9.2341 2.07921 9.77521 1.71454 10.3094 1.45091Z" fill="#0F0F0F"></path> </g></svg>
             </button>
+          </a>
+          <a href="sendrequest.html">
+            <button class="p-2 text-blue-500 hover:bg-blue-50 rounded-lg">
+              <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 10H21M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </button>
+          </a>
+          <button class="p-2 text-blue-500 hover:bg-blue-50 rounded-lg">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C11.2347 0 10.6293 0.125708 10.1567 0.359214C9.9845 0.44429 9.82065 0.544674 9.68861 0.62717L9.59036 0.688808C9.49144 0.751003 9.4082 0.803334 9.32081 0.853848C9.09464 0.984584 9.00895 0.998492 9.00053 0.999859C8.99983 0.999973 9.00019 0.999859 9.00053 0.999859C7.89596 0.999859 7 1.89543 7 3H6C4.34315 3 3 4.34315 3 6V20C3 21.6569 4.34315 23 6 23H18C19.6569 23 21 21.6569 21 20V6C21 4.34315 19.6569 3 18 3H17C17 1.89543 16.1046 1 15 1C15.0003 1 15.0007 1.00011 15 1C14.9916 0.998633 14.9054 0.984584 14.6792 0.853848C14.5918 0.80333 14.5086 0.751004 14.4096 0.688804L14.3114 0.62717C14.1793 0.544674 14.0155 0.44429 13.8433 0.359214C13.3707 0.125708 12.7653 0 12 0ZM16.7324 5C16.3866 5.5978 15.7403 6 15 6H9C8.25972 6 7.61337 5.5978 7.26756 5H6C5.44772 5 5 5.44772 5 6V20C5 20.5523 5.44772 21 6 21H18C18.5523 21 19 20.5523 19 20V6C19 5.44772 18.5523 5 18 5H16.7324ZM11.0426 2.15229C11.1626 2.09301 11.4425 2 12 2C12.5575 2 12.8374 2.09301 12.9574 2.15229C13.0328 2.18953 13.1236 2.24334 13.2516 2.32333L13.3261 2.37008C13.43 2.43542 13.5553 2.51428 13.6783 2.58539C13.9712 2.75469 14.4433 3 15 3V4H9V3C9.55666 3 10.0288 2.75469 10.3217 2.58539C10.4447 2.51428 10.57 2.43543 10.6739 2.37008L10.7484 2.32333C10.8764 2.24334 10.9672 2.18953 11.0426 2.15229Z" fill="#0F0F0F"></path> </g></svg>
+          </button>
+          <button class="p-2 text-blue-500 hover:bg-blue-50 rounded-lg">
+            <svg fill="#000000" viewBox="0 0 16 16" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m13.58 11.6-1.33-2.18V6.33A4.36 4.36 0 0 0 10 2.26a2.45 2.45 0 0 0 0-.38A1.94 1.94 0 0 0 8 0a1.94 1.94 0 0 0-2 1.88 1.64 1.64 0 0 0 0 .38 4.36 4.36 0 0 0-2.25 4.07v3.09L2.42 11.6a1.25 1.25 0 0 0 1.06 1.9h1.77A2.68 2.68 0 0 0 8 16a2.68 2.68 0 0 0 2.75-2.5h1.77a1.25 1.25 0 0 0 1.06-1.9zM7.25 1.88A.7.7 0 0 1 8 1.25a.7.7 0 0 1 .75.63 6 6 0 0 0-.75 0 5.9 5.9 0 0 0-.75 0zM8 14.75a1.44 1.44 0 0 1-1.5-1.25h3A1.44 1.44 0 0 1 8 14.75zm-4.52-2.5 1.34-2.17.18-.31V6.33a4 4 0 0 1 .6-2.12A2.68 2.68 0 0 1 8 3.12a2.68 2.68 0 0 1 2.4 1.09 4 4 0 0 1 .6 2.12v3.44l.18.31 1.34 2.17z"></path></g></svg>
+          </button>
+          <button class="p-2 text-blue-500 hover:bg-blue-50 rounded-lg">
+            <div class="w-8 h-8 rounded-full bg-orange-600"></div>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white w-full  p-8">
+      <div class="container mx-auto px-4">
+       <div class="flex justify-between">
+         <div class="flex gap-2 items-center">
+          <div class="rounded-full  bg-orange-600 w-8 h-8">
+        </div>
+        <h1 class="font-proxima text-sm text-neutral-900 font-bold"> Bas Meijerink</h1>
+         </div>
+         <div >
+          <h1 class="text-green-500 font-proxima font-bold"> 12/25</h1>
+         </div>
+       </div>
+      </div>
+    
+    </div>
+
+    
+      
+      
+      <div class="container mx-auto px-4">
+        <div class="bg-white p-4 rounded-lg mt-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Leave type</h2>
+            <div class="flex flex-wrap gap-2" id="leaveTypeContainer">
+  <!-- Leave Button -->
+  <button class="leave-btn bg-white border flex gap-1 items-center border-neutral-300 text-black px-4 py-2 rounded-lg font-medium">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+      class="w-5 h-5 icon" fill="none" stroke="black" stroke-width="1.8">
+      <line x1="0.5" y1="22.55" x2="23.5" y2="22.55"></line>
+      <polyline points="23.5 18.71 12 18.71 8.17 14.88"></polyline>
+      <line x1="12.96" y1="22.55" x2="12.96" y2="18.71"></line>
+      <line x1="20.63" y1="22.55" x2="20.63" y2="18.71"></line>
+      <line x1="8.22" y1="8.47" x2="3.04" y2="22.73"></line>
+      <path d="M9,1.81h.82A6.79,6.79,0,0,1,16.6,8.6v.08H2.2V8.6A6.79,6.79,0,0,1,9,1.81Z"
+        transform="translate(2.36 -2.9) rotate(20)"></path>
+    </svg>
+    Leave
+  </button>
+
+  <!-- Sick Button -->
+  <button class="leave-btn bg-white border flex gap-1 items-center border-neutral-300 text-gray-800 px-4 py-2 rounded-lg font-medium">
+    <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5 icon"
+      xmlns="http://www.w3.org/2000/svg" stroke="black" stroke-width="2">
+      <path d="M12 16V6M12 17C12.552 17 13 16.552 13 16C13 15.448 12.552 15 12 15C11.448 15 11 15.448 11 16C11 16.552 11.448 17 12 17Z
+               M9 14.354V6C9 4.343 10.343 3 12 3C13.657 3 15 4.343 15 6V14.354C15.622 15.059 16 15.985 16 17
+               C16 19.209 14.209 21 12 21C9.791 21 8 19.209 8 17C8 15.985 8.378 15.059 9 14.354Z"
+        stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    Sick
+  </button>
+
+  <!-- Dropdown -->
+  <select class="bg-white border border-neutral-300 text-gray-800 px-4 py-2 rounded-lg font-medium outline-none cursor-pointer">
+    <option>Other</option>
+    <option>Rise</option>
+    <option>Night Shift</option>
+    <option>Morning Shift</option>
+  </select>
+</div>
+          </div>
+          
+          <div>
+            <h2 class="text-xl font-bold font-proxima text-gray-800 mb-4">Period</h2>
+            <div class="flex space-x-2">
+              <div class="relative w-1/2">
+                <input type="text" value="May 19, 2023" id="startDate" class="w-full pl-12 bg-white border border-neutral-300 text-gray-800 px-4 py-2 rounded-lg font-medium cursor-pointer" readonly />
+                <svg viewBox="0 0 21 21" class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" transform="translate(1 2)"> <path d="m1.5 8.46153846v-6.02882304c0-1.1045695.8954305-2 2-2h.00961527l12.00000003.05771542c1.1008036.00529233 1.9903847.89916054 1.9903847 1.99997689v11.99995377c0 1.1045695-.8954305 2-2 2-.0032051 0-.0064102 0-.0096153 0l-11.99999997-.0577154c-1.10080364-.0052923-1.99038473-.8991606-1.99038473-1.9999769v-1.9326692"></path> <path d="m1.5 4.5h16"></path> <path d="m9.621 8.379v4.242h-4.242" transform="matrix(.70710678 .70710678 .70710678 -.70710678 -5.228144 12.621856)"></path> <path d="m5.5 5.5v10" transform="matrix(0 1 -1 0 16 5)"></path> </g> </g></svg>
+              </div>
+              <div class="relative w-1/2">
+                <input type="text" value="May 21, 2023" id="endDate" class="w-full pl-12 bg-white border border-neutral-300 text-gray-800 px-4 py-2 rounded-lg font-medium cursor-pointer" readonly />
+                <svg viewBox="0 0 21 21" class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" transform="translate(1 2)"> <path d="m1.5 8.46153846v-6.02882304c0-1.1045695.8954305-2 2-2h.00961527l12.00000003.05771542c1.1008036.00529233 1.9903847.89916054 1.9903847 1.99997689v11.99995377c0 1.1045695-.8954305 2-2 2-.0032051 0-.0064102 0-.0096153 0l-11.99999997-.0577154c-1.10080364-.0052923-1.99038473-.8991606-1.99038473-1.9999769v-1.9326692"></path> <path d="m1.5 4.5h16"></path> <path d="m9.621 8.379v4.242h-4.242" transform="matrix(.70710678 .70710678 .70710678 -.70710678 -5.228144 12.621856)"></path> <path d="m5.5 5.5v10" transform="matrix(0 1 -1 0 16 5)"></path> </g> </g></svg>
+              </div>
+            </div>
           </div>
         </div>
-      </main>
+      </div>
+      </div>
+      
+      <div class="container mx-auto px-4">
+       <div class="bg-white rounded-lg ">
+         <div class="mt-8  w-[600px] mx-auto">
+          <div class="flex items-center justify-between py-7 mb-4">
+            <button id="prevMonth" class="p-2 rounded-full hover:bg-gray-100"><i class="fa-solid fa-chevron-left"></i></button>
+            <h2 id="monthLabel" class="text-xl font-bold text-neutral-900">May 2023</h2>
+            <button id="nextMonth" class="p-2 rounded-full hover:bg-gray-100"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+          <div id="calendarGrid" class="grid grid-cols-7 gap-2 text-center text-sm">
+            <div class="text-neutral-900 font-proxima font-bold text-lg">MO</div>
+            <div class="text-neutral-900 font-proxima font-bold text-lg">TU</div>
+            <div class="text-neutral-900 font-proxima font-bold text-lg">WE</div>
+            <div class="text-neutral-900 font-proxima font-bold text-lg">TH</div>
+            <div class="text-neutral-900 font-proxima font-bold text-lg">FR</div>
+            <div class="text-neutral-900 font-proxima font-bold text-lg">SA</div>
+            <div class="text-neutral-900 font-proxima font-bold text-lg">SU</div>
+          </div>
+          
+        </div>
+        <div class="flex justify-center pb-7">
+          <button id="sendRequestBtn" class="w-[600px]  mt-8 bg-blue-400 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+          SEND REQUEST
+        </button>
+        </div>
+       </div>
+
+      </div>
     </div>
-  </body>
+  </div>
+
+<script>
+ const buttons = document.querySelectorAll("#leaveTypeContainer .leave-btn");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Reset all
+      buttons.forEach(b => {
+        b.classList.remove("bg-green-500", "text-white");
+        b.classList.add("bg-white", "text-gray-800");
+
+        // Reset icon colors
+        const icon = b.querySelector(".icon");
+        if (icon) {
+          icon.setAttribute("stroke", "black");
+        }
+      });
+
+      // Activate clicked
+      btn.classList.add("bg-green-500", "text-white");
+      btn.classList.remove("bg-white", "text-gray-800");
+
+      // Set icon to white
+      const icon = btn.querySelector(".icon");
+      if (icon) {
+        icon.setAttribute("stroke", "white");
+      }
+    });
+  });
+  const prevBtn = document.getElementById('prevMonth');
+  const nextBtn = document.getElementById('nextMonth');
+  const monthLabel = document.getElementById('monthLabel');
+  const calendarGrid = document.getElementById('calendarGrid');
+  const startDateInput = document.getElementById('startDate');
+  const endDateInput = document.getElementById('endDate');
+
+  let currentMonth = 4; // May (0-indexed)
+  let currentYear = 2023;
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"
+  ];
+
+  let startDate = null;
+  let endDate = null;
+
+  function generateCalendar(month, year) {
+    calendarGrid.querySelectorAll('.date-cell').forEach(e => e.remove());
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    let offset = (firstDay + 6) % 7;
+
+    for (let i = 0; i < offset; i++) {
+      const cell = document.createElement('div');
+      cell.className = "date-cell py-2 text-gray-400";
+      calendarGrid.appendChild(cell);
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const dateObj = new Date(year, month, d);
+      const cell = document.createElement('div');
+      cell.className = "date-cell py-2 cursor-pointer rounded-md hover:bg-gray-100";
+      cell.textContent = d;
+      cell.dataset.date = dateObj.toISOString();
+      calendarGrid.appendChild(cell);
+
+      cell.addEventListener('click', () => handleDateClick(dateObj));
+    }
+
+    monthLabel.textContent = `${monthNames[month]} ${year}`;
+    highlightRange();
+  }
+
+  function handleDateClick(date) {
+    if (!startDate || (startDate && endDate)) {
+      startDate = date;
+      endDate = null;
+    } else if (date < startDate) {
+      endDate = startDate;
+      startDate = date;
+    } else {
+      endDate = date;
+    }
+    highlightRange();
+    updateDateInputs();
+  }
+
+  function highlightRange() {
+    calendarGrid.querySelectorAll('.date-cell').forEach(cell => {
+      cell.classList.remove('bg-blue-500', 'bg-blue-200', 'text-white');
+      const cellDate = cell.dataset.date ? new Date(cell.dataset.date) : null;
+
+      if (cellDate) {
+        if (isSameDay(cellDate, startDate) || isSameDay(cellDate, endDate)) {
+          cell.classList.add('bg-green-500', 'text-white');
+        } else if (startDate && endDate && cellDate > startDate && cellDate < endDate) {
+          cell.classList.add('bg-green-100');
+        }
+      }
+    });
+  }
+
+  function updateDateInputs() {
+    const formatDate = (date) =>
+      `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+
+    if (startDate) {
+      startDateInput.value = formatDate(startDate);
+      endDateInput.value = endDate ? formatDate(endDate) : formatDate(startDate);
+    } else {
+      startDateInput.value = '';
+      endDateInput.value = '';
+    }
+  }
+
+  function isSameDay(a, b) {
+    return a && b && a.getFullYear() === b.getFullYear() &&
+           a.getMonth() === b.getMonth() &&
+           a.getDate() === b.getDate();
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentMonth--;
+    if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+    generateCalendar(currentMonth, currentYear);
+    updateDateInputs();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentMonth++;
+    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    generateCalendar(currentMonth, currentYear);
+    updateDateInputs();
+  });
+
+  // Initial render
+  generateCalendar(currentMonth, currentYear);
+  updateDateInputs();
+
+  // Submit button
+  document.getElementById('sendRequestBtn').addEventListener('click', () => {
+    const leaveType = document.querySelector('.leave-buttons button.bg-blue-500').textContent;
+    const start = startDateInput.value;
+    const end = endDateInput.value;
+    alert(`Request submitted:\nType: ${leaveType.trim()}\nFrom: ${start}\nTo: ${end}`);
+  });
+</script>
+
+
+</body>
 </html>
