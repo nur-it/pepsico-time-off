@@ -86,3 +86,11 @@
     @apply absolute bottom-1 text-xs;
   }
 }
+
+.container-fluid {
+  /* @apply mx-auto w-full max-w-[1260px] px-4; */
+  max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
