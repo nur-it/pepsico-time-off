@@ -20,8 +20,3 @@ document.getElementById("nextMonth").addEventListener("click", () => {
 
 // Initialize calendar
 updateCalendar();
-
-// Check if user is logged in
-if (!localStorage.getItem("isLoggedIn")) {
-  window.location.href = "/";
-}
