@@ -5,9 +5,16 @@
 :root {
   --primary: #ea6608;
   --success: #2bc083;
+  --success-dark: #00a38c;
   --info: #01a0d2;
+  --purple: #8d1d81;
+  --purple-dark: #7554d4;
   --warning: #fd4c46;
+  --warning-dark: #f04c46;
   --dark: #2b2d41;
+  --gray-100: #e9e9eb;
+  --gray-200: #d4d5d9;
+  --gray-dark: #4e4e4e;
 }
 
 .font-proxima {
@@ -38,12 +45,31 @@
 .bg-warning {
   background-color: var(--warning);
 }
+.text-warning-dark {
+  color: var(--warning-dark);
+}
+.bg-warning-dark {
+  background-color: var(--warning-dark);
+}
 .text-dark {
   color: var(--dark);
 }
 .bg-dark {
   background-color: var(--dark);
 }
+.text-purple {
+  color: var(--purple);
+}
+.bg-purple {
+  background-color: var(--purple);
+}
+.text-purple-dark {
+  color: var(--purple-dark);
+}
+.bg-purple-dark {
+  background-color: var(--purple-dark);
+}
+
 .border-primary {
   border-color: var(--primary);
 }
@@ -97,7 +123,7 @@
 
 .container-fluid {
   /* @apply mx-auto w-full max-w-[1260px] px-4; */
-  max-width: 1260px;
+  max-width: 1280px;
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
