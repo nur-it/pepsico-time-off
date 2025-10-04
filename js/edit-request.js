@@ -13,7 +13,7 @@ function resetAllSelections() {
     if (icon) {
       // Handle both stroke and fill attributes using style for higher specificity
       const paths = icon.querySelectorAll("path");
-      paths.forEach(path => {
+      paths.forEach((path) => {
         path.style.fill = "#2b2d41"; // Dark color for inactive
         path.setAttribute("fill", "#2b2d41");
       });
@@ -25,11 +25,12 @@ function resetAllSelections() {
   // Reset dropdown
   dropdownSelected.classList.remove("bg-[#24bf86]", "text-white");
   dropdownSelected.classList.add("bg-white", "text-dark");
-  
+
   // Reset chevron icon color
   const chevronIcon = dropdown.querySelector(".dropdown-arrow");
   if (chevronIcon) {
-    chevronIcon.style.filter = "brightness(0) saturate(100%) invert(17%) sepia(8%) saturate(1171%) hue-rotate(201deg) brightness(95%) contrast(95%)"; // Dark color
+    chevronIcon.style.filter =
+      "brightness(0) saturate(100%) invert(17%) sepia(8%) saturate(1171%) hue-rotate(201deg) brightness(95%) contrast(95%)"; // Dark color
   }
 }
 
@@ -43,7 +44,7 @@ function activateButton(btn) {
   if (icon) {
     // Handle both stroke and fill attributes using style for higher specificity
     const paths = icon.querySelectorAll("path");
-    paths.forEach(path => {
+    paths.forEach((path) => {
       path.style.fill = "#ffffff"; // White color for active
       path.setAttribute("fill", "#ffffff");
     });
@@ -57,7 +58,7 @@ function activateDropdown() {
   resetAllSelections();
   dropdownSelected.classList.add("bg-[#24bf86]", "text-white");
   dropdownSelected.classList.remove("bg-white", "text-dark");
-  
+
   // Make chevron icon white
   const chevronIcon = dropdown.querySelector(".dropdown-arrow");
   if (chevronIcon) {
@@ -103,6 +104,10 @@ const monthNames = [
 
 let startDate = null;
 let endDate = null;
+
+// Store the original/previously selected dates for styling purposes
+let originalStartDate = null;
+let originalEndDate = null;
 
 function generateCalendar(month, year) {
   calendarGrid.querySelectorAll(".date-cell").forEach((e) => e.remove());
@@ -165,7 +170,11 @@ function generateCalendar(month, year) {
 }
 
 function handleDateClick(date) {
+  // Reset original dates when starting a new selection
   if (!startDate || (startDate && endDate)) {
+    // Clear original dates when starting fresh selection
+    originalStartDate = null;
+    originalEndDate = null;
     startDate = date;
     endDate = null;
   } else if (date < startDate) {
@@ -176,6 +185,7 @@ function handleDateClick(date) {
   }
   highlightRange();
   updateDateInputs();
+  updateHeaderDateRange();
 }
 
 function highlightRange() {
@@ -185,21 +195,41 @@ function highlightRange() {
       "bg-blue-200",
       "bg-[#24bf86]",
       "bg-green-100",
+      "bg-warning-dark",
       "text-white",
       "border-[#24bf86]",
-      "border-green-300"
+      "border-green-300",
+      "border-warning-dark"
     );
     const cellDate = cell.dataset.date ? new Date(cell.dataset.date) : null;
 
     if (cellDate) {
-      if (isSameDay(cellDate, startDate) || isSameDay(cellDate, endDate)) {
+      // Check if this date is part of the original selection (only if original dates exist)
+      const isOriginalDate =
+        originalStartDate &&
+        originalEndDate &&
+        (isSameDay(cellDate, originalStartDate) ||
+          isSameDay(cellDate, originalEndDate) ||
+          (cellDate > originalStartDate && cellDate < originalEndDate));
+
+      // Check if this date is part of the new selection
+      const isNewStartOrEnd =
+        isSameDay(cellDate, startDate) || isSameDay(cellDate, endDate);
+      const isNewRange =
+        startDate && endDate && cellDate > startDate && cellDate < endDate;
+
+      if (isOriginalDate && !isNewStartOrEnd && !isNewRange) {
+        // Original dates that are not part of new selection - warning-dark background
+        cell.classList.add(
+          "bg-warning-dark",
+          "text-white",
+          "border-warning-dark"
+        );
+      } else if (isNewStartOrEnd) {
+        // New start/end dates - green background
         cell.classList.add("bg-[#24bf86]", "text-white", "border-[#24bf86]");
-      } else if (
-        startDate &&
-        endDate &&
-        cellDate > startDate &&
-        cellDate < endDate
-      ) {
+      } else if (isNewRange) {
+        // New range dates - light green background
         cell.classList.add("bg-green-100", "border-green-300");
       }
     }
@@ -216,6 +246,28 @@ function updateDateInputs() {
   } else {
     startDateInput.value = "";
     endDateInput.value = "";
+  }
+}
+
+function updateHeaderDateRange() {
+  const headerElement = document.querySelector("h1");
+  if (headerElement && startDate) {
+    const formatDate = (date) => `${date.getDate()}`;
+    const monthName = monthNames[startDate.getMonth()];
+
+    if (endDate) {
+      const dateRange =
+        startDate.getMonth() === endDate.getMonth()
+          ? `${formatDate(startDate)} - ${formatDate(endDate)}`
+          : `${formatDate(startDate)} ${
+              monthNames[startDate.getMonth()]
+            } - ${formatDate(endDate)} ${monthNames[endDate.getMonth()]}`;
+      headerElement.textContent = `Edit Leave ${monthName} ${dateRange}`;
+    } else {
+      headerElement.textContent = `Edit Leave  ${monthName} ${formatDate(
+        startDate
+      )}}`;
+    }
   }
 }
 
@@ -251,11 +303,40 @@ nextBtn.addEventListener("click", () => {
 
 generateCalendar(currentMonth, currentYear);
 
-// Set default date range (17th to 19th of current month)
-startDate = new Date(currentYear, currentMonth, 15);
-endDate = new Date(currentYear, currentMonth, 21);
+// Set default date range (15th to 21st of current month) as original dates
+originalStartDate = new Date(currentYear, currentMonth, 15);
+originalEndDate = new Date(currentYear, currentMonth, 21);
+
+// Initially, don't set startDate and endDate so the original dates show with warning background
+startDate = null;
+endDate = null;
+
+// Set the input fields to show the original dates
+const formatDate = (date) =>
+  `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+
+startDateInput.value = formatDate(originalStartDate);
+endDateInput.value = formatDate(originalEndDate);
+
+// Update header with original dates
+const formatDateForHeader = (date) => `${date.getDate()}`;
+const monthName = monthNames[originalStartDate.getMonth()];
+const dateRange =
+  originalStartDate.getMonth() === originalEndDate.getMonth()
+    ? `${formatDateForHeader(originalStartDate)} - ${formatDateForHeader(
+        originalEndDate
+      )}`
+    : `${formatDateForHeader(originalStartDate)} ${
+        monthNames[originalStartDate.getMonth()]
+      } - ${formatDateForHeader(originalEndDate)} ${
+        monthNames[originalEndDate.getMonth()]
+      }`;
+
+document.querySelector(
+  "h1"
+).textContent = `Edit Leave: ${monthName} ${dateRange}`;
+
 highlightRange();
-updateDateInputs();
 
 document.getElementById("sendRequestBtn").addEventListener("click", () => {
   const leaveType = document.querySelector(
